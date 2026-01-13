@@ -248,5 +248,111 @@
             console.log(`Вы посетили страницу хоррора ${visits} раз`);
         });
     </script>
+    <script>
+    // Загрузка раскрасок для текущей категории
+    document.addEventListener('DOMContentLoaded', function() {
+        // Определяем категорию из имени файла
+        let category = '';
+        if (window.location.pathname.includes('anti-stress')) {
+            category = 'anti-stress';
+        } else if (window.location.pathname.includes('romantic')) {
+            category = 'romantic';
+        } else if (window.location.pathname.includes('horror')) {
+            category = 'horror';
+        }
+        
+        // Загружаем раскраски из localStorage
+        try {
+            const coloringsData = localStorage.getItem('adultColoringPages');
+            if (coloringsData) {
+                const allColorings = JSON.parse(coloringsData);
+                const categoryColorings = allColorings[category] || [];
+                
+                const grid = document.getElementById('coloringGrid');
+                const noColorings = document.getElementById('noColorings');
+                
+                if (categoryColorings.length === 0) {
+                    if (grid) grid.style.display = 'none';
+                    if (noColorings) noColorings.style.display = 'block';
+                    return;
+                }
+                
+                // Создаем карточки для каждой раскраски
+                categoryColorings.forEach((coloring, index) => {
+                    const card = document.createElement('div');
+                    card.className = 'coloring-card';
+                    
+                    const difficultyText = {
+                        'low': 'Низкая',
+                        'medium': 'Средняя',
+                        'high': 'Высокая'
+                    }[coloring.difficulty] || 'Средняя';
+                    
+                    card.innerHTML = `
+                        <div class="coloring-preview">
+                            <img src="${coloring.image}" alt="${coloring.name}" loading="lazy">
+                        </div>
+                        <div class="coloring-info">
+                            <h3 class="coloring-title">${coloring.name}</h3>
+                            <p class="coloring-description">${coloring.description}</p>
+                            <div class="coloring-details">
+                                <span><i class="far fa-file-image"></i> PNG</span>
+                                <span><i class="far fa-clock"></i> Сложность: ${difficultyText}</span>
+                            </div>
+                            <a href="${coloring.image}" download="${coloring.name.replace(/[^a-zа-яё0-9]/gi, '-')}.png" class="download-btn download-coloring" data-id="${coloring.id}">
+                                <i class="fas fa-download"></i> Скачать PNG
+                            </a>
+                        </div>
+                    `;
+                    
+                    if (grid) {
+                        // Анимация появления
+                        card.style.opacity = '0';
+                        card.style.transform = 'translateY(20px)';
+                        grid.appendChild(card);
+                        
+                        setTimeout(() => {
+                            card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0)';
+                        }, index * 100);
+                    }
+                });
+                
+                // Добавляем обработчик скачивания
+                document.querySelectorAll('.download-coloring').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const coloringId = parseInt(this.dataset.id);
+                        
+                        // Обновляем счетчик скачиваний
+                        const coloringsData = localStorage.getItem('adultColoringPages');
+                        if (coloringsData) {
+                            const allColorings = JSON.parse(coloringsData);
+                            const coloring = allColorings[category].find(c => c.id === coloringId);
+                            
+                            if (coloring) {
+                                coloring.downloads = (coloring.downloads || 0) + 1;
+                                localStorage.setItem('adultColoringPages', JSON.stringify(allColorings));
+                                
+                                // Обновляем счетчик на главной странице
+                                if (window.opener) {
+                                    window.opener.coloringAdmin?.updateCategoryCounts();
+                                }
+                            }
+                        }
+                        
+                        // Уведомление
+                        setTimeout(() => {
+                            alert('Скачивание началось! Файл сохранится в папке "Загрузки".');
+                        }, 500);
+                    });
+                });
+                
+            }
+        } catch (error) {
+            console.error('Ошибка загрузки раскрасок:', error);
+        }
+    });
+</script>
 </body>
 </html>
