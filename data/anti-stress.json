@@ -1,0 +1,30 @@
+{
+  "category": "Антистресс",
+  "description": "Успокаивающие узоры для релаксации",
+  "colorings": [
+    {
+      "id": 1,
+      "name": "Мандала 'Гармония'",
+      "description": "Круговая симметричная мандала с цветочными элементами",
+      "image": "images/anti-stress/mandala-1.png",
+      "difficulty": "medium",
+      "downloads": 0
+    },
+    {
+      "id": 2,
+      "name": "Геометрический лабиринт",
+      "description": "Сложные геометрические узоры для концентрации",
+      "image": "images/anti-stress/pattern-2.png",
+      "difficulty": "hard",
+      "downloads": 0
+    },
+    {
+      "id": 3,
+      "name": "Океанские волны",
+      "description": "Плавные линии, напоминающие движение воды",
+      "image": "images/anti-stress/waves-3.png",
+      "difficulty": "easy",
+      "downloads": 0
+    }
+  ]
+}
