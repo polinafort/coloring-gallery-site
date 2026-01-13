@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Романтические раскраски - Скачать PNG</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #fff5f5 0%, #ffe5e5 100%);
+            min-height: 100vh;
+            color: #2d3748;
+        }
+        
+        .header {
+            background: linear-gradient(to right, #ff6b6b, #ff8e8e);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 20px rgba(255, 107, 107, 0.3);
+        }
+        
+        .back-button {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            transition: gap 0.3s ease;
+        }
+        
+        .back-button:hover {
+            gap: 12px;
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px 40px;
+        }
+        
+        .coloring-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .coloring-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+        
+        .coloring-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+        }
+        
+        .coloring-preview {
+            height: 250px;
+            background: #f8f9fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            position: relative;
+        }
+        
+        .coloring-preview img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            transition: transform 0.5s ease;
+        }
+        
+        .coloring-card:hover .coloring-preview img {
+            transform: scale(1.05);
+        }
+        
+        .coloring-info {
+            padding: 25px;
+        }
+        
+        .coloring-title {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: #2d3748;
+        }
+        
+        .coloring-description {
+            color: #718096;
+            line-height: 1.5;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+        
+        .coloring-details {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #a0aec0;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .download-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(to right, #ff6b6b, #ff8e8e);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 107, 107, 0.3);
+        }
+        
+        .print-tip {
+            background: #fff0f0;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 40px;
+            border-left: 4px solid #ff6b6b;
+        }
+        
+        .print-tip h3 {
+            color: #c53030;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .coloring-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .back-button {
+                position: relative;
+                top: 0;
+                left: 0;
+                margin-bottom: 20px;
+                justify-content: center;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="header">
+        <a href="index.html" class="back-button">
+            <i class="fas fa-arrow-left"></i> Назад к категориям
+        </a>
+        <h1>Романтические раскраски</h1>
+        <p>Нежные узоры и романтические сюжеты для вдохновения и творчества</p>
+    </div>
+    
+    <div class="container">
+        <div class="coloring-grid">
+            <!-- Раскраска 1 -->
+            <div class="coloring-card">
+                <div class="coloring-preview">
+                    <img src="https://images.unsplash.com/photo-1516542076529-1ea3854896f2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Романтические розы">
+                </div>
+                <div class="coloring-info">
+                    <h3 class="coloring-title">Букет роз</h3>
+                    <p class="coloring-description">Нежный букет из роз и листьев в романтическом стиле. Идеально для выражения чувств.</p>
+                    <div class="coloring-details">
+                        <span><i class="far fa-file-image"></i> PNG 3000×2500px</span>
+                        <span><i class="far fa-clock"></i> Сложность: средняя</span>
+                    </div>
+                    <a href="https://images.unsplash.com/photo-1516542076529-1ea3854896f2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" download="букет-роз.png" class="download-btn">
+                        <i class="fas fa-download"></i> Скачать PNG (2.2 MB)
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Раскраска 2 -->
+            <div class="coloring-card">
+                <div class="coloring-preview">
+                    <img src="https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Влюбленная пара">
+                </div>
+                <div class="coloring-info">
+                    <h3 class="coloring-title">Влюбленная пара</h3>
+                    <p class="coloring-description">Силуэты влюбленных на фоне заката. Романтичная сцена для творческого раскрашивания.</p>
+                    <div class="coloring-details">
+                        <span><i class="far fa-file-image"></i> PNG 2800×2000px</span>
+                        <span><i class="far fa-clock"></i> Сложность: высокая</span>
+                    </div>
+                    <a href="https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" download="влюбленная-пара.png" class="download-btn">
+                        <i class="fas fa-download"></i> Скачать PNG (2.0 MB)
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Раскраска 3 -->
+            <div class="coloring-card">
+                <div class="coloring-preview">
+                    <img src="https://images.unsplash.com/photo-1533035353720-f1c6a75cd8ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Сердца и цветы">
+                </div>
+                <div class="coloring-info">
+                    <h3 class="coloring-title">Сердечный орнамент</h3>
+                    <p class="coloring-description">Переплетающиеся сердца и цветочные узоры. Прекрасный подарок для любимого человека.</p>
+                    <div class="coloring-details">
+                        <span><i class="far fa-file-image"></i> PNG 2500×2500px</span>
+                        <span><i class="far fa-clock"></i> Сложность: низкая</span>
+                    </div>
+                    <a href="https://images.unsplash.com/photo-1533035353720-f1c6a75cd8ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" download="сердечный-орнамент.png" class="download-btn">
+                        <i class="fas fa-download"></i> Скачать PNG (1.7 MB)
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="print-tip">
+            <h3><i class="fas fa-lightbulb"></i> Цветовые советы</h3>
+            <p>Используйте пастельные тона: нежно-розовый, лавандовый, мятный, персиковый. Добавьте золотые или серебряные акценты для особого блеска.</p>
+        </div>
+    </div>
+    
+    <script>
+        // Анимация появления карточек
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.coloring-card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                
+                setTimeout(() => {
+                    card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 200);
+            });
+        });
+    </script>
+</body>
+</html>
