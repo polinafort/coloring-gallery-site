@@ -81,6 +81,19 @@
         @media (max-width: 768px) { .categories-grid { grid-template-columns: 1fr; } h1 { font-size: 2rem; } }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Preload важных ресурсов -->
+<link rel="preload" href="/images/anti-stress/preview.jpg" as="image">
+<link rel="preload" href="/images/romantic/preview.jpg" as="image">
+
+<!-- Lazy loading для изображений -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const images = document.querySelectorAll('img');
+        images.forEach(img => {
+            img.loading = 'lazy';
+        });
+    });
+</script>
 </head>
 <body>
     <div class="container">
