@@ -81,8 +81,6 @@
         @media (max-width: 768px) { .categories-grid { grid-template-columns: 1fr; } h1 { font-size: 2rem; } }
     /* === ПОЛНОЭКРАННЫЙ РАЗДЕЛ "О ПРОЕКТЕ" === */
 
-/* === ПОЛНОЭКРАННЫЙ РАЗДЕЛ "О ПРОЕКТЕ" === */
-
 .about-section.fullscreen {
     width: 100%;
     position: relative;
@@ -108,7 +106,7 @@
 }
 
 .about-container {
-    max-width: 1200px; /* Синхронизируем с основным контейнером */
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
 }
@@ -276,11 +274,13 @@
     height: 100%;
     object-fit: cover;
     display: block;
-    transition: transform 0.7s ease;
+    /* Убрана анимация трансформации */
+    transition: none;
 }
 
 .image-container:hover img {
-    transform: scale(1.05);
+    /* Убрано масштабирование при наведении */
+    transform: none;
 }
 
 .image-overlay {
@@ -402,7 +402,8 @@
 
 .step-card:hover {
     background: white;
-    transform: translateY(-10px);
+    /* Убрано движение вверх при наведении */
+    transform: none;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
 }
 
@@ -598,35 +599,8 @@
     }
 }
 
-/* Анимации */
-@keyframes slideUp {
-    from {
-        opacity: 0;
-        transform: translateY(40px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.about-section.fullscreen {
-    animation: slideUp 0.8s ease;
-}
-
-.benefit-card, .step-card {
-    animation: slideUp 0.6s ease;
-}
-
-.benefit-card:nth-child(1) { animation-delay: 0.1s; }
-.benefit-card:nth-child(2) { animation-delay: 0.2s; }
-.benefit-card:nth-child(3) { animation-delay: 0.3s; }
-.benefit-card:nth-child(4) { animation-delay: 0.4s; }
-
-.step-card:nth-child(1) { animation-delay: 0.2s; }
-.step-card:nth-child(2) { animation-delay: 0.3s; }
-.step-card:nth-child(3) { animation-delay: 0.4s; }
-.step-card:nth-child(4) { animation-delay: 0.5s; }
+/* УБРАНЫ АНИМАЦИИ */
+/* Удалены анимации slideUp и все задержки анимаций */
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Preload важных ресурсов -->
