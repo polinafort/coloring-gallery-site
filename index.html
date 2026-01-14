@@ -81,6 +81,8 @@
         @media (max-width: 768px) { .categories-grid { grid-template-columns: 1fr; } h1 { font-size: 2rem; } }
     /* === ПОЛНОЭКРАННЫЙ РАЗДЕЛ "О ПРОЕКТЕ" === */
 
+/* === ПОЛНОЭКРАННЫЙ РАЗДЕЛ "О ПРОЕКТЕ" === */
+
 .about-section.fullscreen {
     width: 100%;
     position: relative;
@@ -106,9 +108,9 @@
 }
 
 .about-container {
-    max-width: 1400px;
+    max-width: 1200px; /* Синхронизируем с основным контейнером */
     margin: 0 auto;
-    padding: 0 40px;
+    padding: 0 20px;
 }
 
 /* Заголовок секции */
@@ -148,30 +150,20 @@
     line-height: 1.6;
 }
 
-/* Основной контент - 2 колонки */
-.about-main-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 50px;
-    margin-bottom: 70px;
-}
-
-.about-column {
+/* Полноширинные блоки */
+.full-width-block {
     width: 100%;
-}
-
-/* Левая колонка */
-.left-column {
-    padding-right: 25px;
-}
-
-.intro-card {
     background: white;
-    padding: 35px;
     border-radius: 20px;
     margin-bottom: 40px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+}
+
+/* Блок "Что это за проект?" */
+.intro-block {
     border-left: 6px solid #4ecdc4;
+    padding: 40px;
 }
 
 .intro-header {
@@ -202,8 +194,9 @@
 /* Сетка преимуществ */
 .benefits-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(4, 1fr);
     gap: 25px;
+    padding: 40px;
 }
 
 .benefit-card {
@@ -262,26 +255,25 @@
     margin: 0;
 }
 
-/* Правая колонка */
-.right-column {
-    padding-left: 25px;
-}
-
-.image-stat-card {
-    width: 100%;
+/* Контейнер для изображения и статистики */
+.image-stats-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 30px;
+    margin-bottom: 40px;
 }
 
 .image-container {
     position: relative;
     border-radius: 20px;
     overflow: hidden;
-    margin-bottom: 30px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    height: 350px;
 }
 
 .image-container img {
     width: 100%;
-    height: 350px;
+    height: 100%;
     object-fit: cover;
     display: block;
     transition: transform 0.7s ease;
@@ -315,13 +307,14 @@
 
 /* Статистика */
 .stats-container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
     background: white;
     padding: 30px;
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .stat-item {
@@ -361,7 +354,7 @@
     padding: 50px;
     border-radius: 25px;
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-    margin-top: 30px;
+    margin-top: 40px;
 }
 
 .instruction-header {
@@ -503,22 +496,17 @@
         font-size: 2.3rem;
     }
     
-    .about-main-content {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-    
-    .left-column,
-    .right-column {
-        padding: 0;
-    }
-    
     .benefits-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
     }
     
-    .stats-container {
-        grid-template-columns: repeat(2, 1fr);
+    .image-stats-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .image-container {
+        height: 300px;
     }
     
     .steps-grid {
@@ -528,6 +516,10 @@
     
     .instruction-section {
         padding: 40px 30px;
+    }
+    
+    .intro-block {
+        padding: 30px;
     }
 }
 
@@ -552,7 +544,7 @@
         font-size: 1.1rem;
     }
     
-    .intro-card {
+    .intro-block {
         padding: 25px;
     }
     
@@ -564,13 +556,18 @@
         font-size: 1.05rem;
     }
     
-    .image-container img {
+    .benefits-grid {
+        grid-template-columns: 1fr;
+        padding: 25px;
+        gap: 20px;
+    }
+    
+    .image-container {
         height: 250px;
     }
     
     .stats-container {
-        grid-template-columns: 1fr;
-        gap: 15px;
+        padding: 20px;
     }
     
     .steps-grid {
@@ -597,7 +594,7 @@
 /* Большие экраны (от 1600px) */
 @media (min-width: 1600px) {
     .about-container {
-        max-width: 1500px;
+        max-width: 1400px;
     }
 }
 
@@ -703,6 +700,7 @@
             </a>
         </div>
        <!-- === РАЗДЕЛ "О ПРОЕКТЕ" (полноэкранный) === -->
+<!-- === РАЗДЕЛ "О ПРОЕКТЕ" (полноэкранный) === -->
 <section class="about-section fullscreen">
     <div class="about-container">
         <!-- Заголовок по центру -->
@@ -715,142 +713,136 @@
             <p class="section-subtitle">Терапевтическое искусство для релаксации и творчества</p>
         </div>
 
-        <!-- Основной контент - 2 равные колонки -->
-        <div class="about-content-wrapper">
-            <div class="about-main-content">
-                <!-- Левая колонка: Текст и преимущества -->
-                <div class="about-column left-column">
-                    <div class="intro-card">
-                        <div class="intro-header">
-                            <i class="fas fa-star"></i>
-                            <h3>Что это за проект?</h3>
-                        </div>
-                        <p class="intro-text">
-                            Это онлайн-коллекция <strong>бесплатных раскрасок для взрослых</strong>, созданная 
-                            для тех, кто ищет эффективный способ снять стресс, развить творческие способности 
-                            и отдохнуть от цифрового мира.
-                        </p>
+        <!-- Блок "Что это за проект?" -->
+        <div class="full-width-block intro-block">
+            <div class="intro-header">
+                <i class="fas fa-star"></i>
+                <h3>Что это за проект?</h3>
+            </div>
+            <p class="intro-text">
+                Это онлайн-коллекция <strong>бесплатных раскрасок для взрослых</strong>, созданная 
+                для тех, кто ищет эффективный способ снять стресс, развить творческие способности 
+                и отдохнуть от цифрового мира.
+            </p>
+        </div>
+
+        <!-- Блок "Преимущества раскрашивания" -->
+        <div class="full-width-block">
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-brain"></i>
                     </div>
-
-                    <div class="benefits-grid">
-                        <div class="benefit-card">
-                            <div class="benefit-icon">
-                                <i class="fas fa-brain"></i>
-                            </div>
-                            <div class="benefit-content">
-                                <h4>Снижает стресс</h4>
-                                <p>Раскрашивание действует как медитация, снижая уровень кортизола</p>
-                            </div>
-                        </div>
-
-                        <div class="benefit-card">
-                            <div class="benefit-icon">
-                                <i class="fas fa-lightbulb"></i>
-                            </div>
-                            <div class="benefit-content">
-                                <h4>Развивает креативность</h4>
-                                <p>Пробуждает творческий потенциал и воображение</p>
-                            </div>
-                        </div>
-
-                        <div class="benefit-card">
-                            <div class="benefit-icon">
-                                <i class="fas fa-mobile-alt"></i>
-                            </div>
-                            <div class="benefit-content">
-                                <h4>Цифровой детокс</h4>
-                                <p>Альтернатива бесконечному скроллингу в соцсетях</p>
-                            </div>
-                        </div>
-
-                        <div class="benefit-card">
-                            <div class="benefit-icon">
-                                <i class="fas fa-hands"></i>
-                            </div>
-                            <div class="benefit-content">
-                                <h4>Улучшает моторику</h4>
-                                <p>Тренирует мелкую моторику и координацию движений</p>
-                            </div>
-                        </div>
+                    <div class="benefit-content">
+                        <h4>Снижает стресс</h4>
+                        <p>Раскрашивание действует как медитация, снижая уровень кортизола</p>
                     </div>
                 </div>
 
-                <!-- Правая колонка: Изображение и статистика -->
-                <div class="about-column right-column">
-                    <div class="image-stat-card">
-                        <div class="image-container">
-                            <img src="https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                                 alt="Терапия раскрашиванием" loading="lazy">
-                            <div class="image-overlay">
-                                <p><i class="fas fa-heart"></i> 20 минут раскрашивания = 1 час медитации</p>
-                            </div>
-                        </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <div class="benefit-content">
+                        <h4>Развивает креативность</h4>
+                        <p>Пробуждает творческий потенциал и воображение</p>
+                    </div>
+                </div>
 
-                        <div class="stats-container">
-                            <div class="stat-item">
-                                <div class="stat-number">50+</div>
-                                <div class="stat-label">раскрасок</div>
-                            </div>
-                            <div class="stat-item">
-                                <div class="stat-number">100%</div>
-                                <div class="stat-label">бесплатно</div>
-                            </div>
-                            <div class="stat-item">
-                                <div class="stat-number">3</div>
-                                <div class="stat-label">категории</div>
-                            </div>
-                            <div class="stat-item">
-                                <div class="stat-number">24/7</div>
-                                <div class="stat-label">доступ</div>
-                            </div>
-                        </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <div class="benefit-content">
+                        <h4>Цифровой детокс</h4>
+                        <p>Альтернатива бесконечному скроллингу в соцсетях</p>
+                    </div>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-hands"></i>
+                    </div>
+                    <div class="benefit-content">
+                        <h4>Улучшает моторику</h4>
+                        <p>Тренирует мелкую моторику и координацию движений</p>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <!-- Инструкция - на всю ширину -->
-            <div class="instruction-section">
-                <div class="instruction-header">
-                    <h3><i class="fas fa-play-circle"></i> Как начать использовать?</h3>
-                    <p>Всего 4 простых шага к творческому отдыху</p>
+        <!-- Изображение и статистика -->
+        <div class="image-stats-container">
+            <div class="image-container">
+                <img src="https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                     alt="Терапия раскрашиванием" loading="lazy">
+                <div class="image-overlay">
+                    <p><i class="fas fa-heart"></i> 20 минут раскрашивания = 1 час медитации</p>
+                </div>
+            </div>
+
+            <div class="stats-container">
+                <div class="stat-item">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">раскрасок</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">бесплатно</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">категории</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">доступ</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Инструкция -->
+        <div class="instruction-section">
+            <div class="instruction-header">
+                <h3><i class="fas fa-play-circle"></i> Как начать использовать?</h3>
+                <p>Всего 4 простых шага к творческому отдыху</p>
+            </div>
+
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <div class="step-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h4>Выберите категорию</h4>
+                    <p>Антистресс, романтика или хоррор - каждая создана для разного настроения</p>
                 </div>
 
-                <div class="steps-grid">
-                    <div class="step-card">
-                        <div class="step-number">1</div>
-                        <div class="step-icon">
-                            <i class="fas fa-search"></i>
-                        </div>
-                        <h4>Выберите категорию</h4>
-                        <p>Антистресс, романтика или хоррор - каждая создана для разного настроения</p>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <div class="step-icon">
+                        <i class="fas fa-mouse-pointer"></i>
                     </div>
+                    <h4>Выберите раскраску</h4>
+                    <p>Просмотрите галерею и найдите изображение, которое вдохновляет вас</p>
+                </div>
 
-                    <div class="step-card">
-                        <div class="step-number">2</div>
-                        <div class="step-icon">
-                            <i class="fas fa-mouse-pointer"></i>
-                        </div>
-                        <h4>Выберите раскраску</h4>
-                        <p>Просмотрите галерею и найдите изображение, которое вдохновляет вас</p>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <div class="step-icon">
+                        <i class="fas fa-download"></i>
                     </div>
+                    <h4>Скачайте PNG</h4>
+                    <p>Нажмите кнопку "Скачать" - файл сохранится в папке "Загрузки"</p>
+                </div>
 
-                    <div class="step-card">
-                        <div class="step-number">3</div>
-                        <div class="step-icon">
-                            <i class="fas fa-download"></i>
-                        </div>
-                        <h4>Скачайте PNG</h4>
-                        <p>Нажмите кнопку "Скачать" - файл сохранится в папке "Загрузки"</p>
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <div class="step-icon">
+                        <i class="fas fa-paint-brush"></i>
                     </div>
-
-                    <div class="step-card">
-                        <div class="step-number">4</div>
-                        <div class="step-icon">
-                            <i class="fas fa-paint-brush"></i>
-                        </div>
-                        <h4>Начните творить</h4>
-                        <p>Распечатайте, возьмите цветные карандаши и погрузитесь в творчество</p>
-                    </div>
+                    <h4>Начните творить</h4>
+                    <p>Распечатайте, возьмите цветные карандаши и погрузитесь в творчество</p>
                 </div>
             </div>
         </div>
